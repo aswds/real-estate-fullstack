@@ -1,0 +1,43 @@
+#import UserRealtor from './user.gql'
+type RealEstate {
+  _id: ID!
+  propertyType: String!
+  address: String!
+  city: String!
+  state: String!
+  zipCode: String!
+  country: String!
+  price: Float!
+  bedrooms: Int!
+  bathrooms: Int!
+  squareFootage: Float!
+  yearBuilt: Int!
+  isForSale: Boolean!
+  realtorId: ID!
+}
+input RealEstateInput {
+  propertyType: String!
+  address: String!
+  city: String!
+  state: String!
+  zipCode: String!
+  country: String!
+  price: Float!
+  bedrooms: Int!
+  bathrooms: Int!
+  squareFootage: Float!
+  yearBuilt: Int!
+  isForSale: Boolean!
+  realtorId: ID!
+}
+
+type Query {
+  getRealEstate(id: ID!): RealEstate
+  getAllRealEstate: [RealEstate]
+}
+
+type Mutation {
+  createRealEstate(input: RealEstateInput): RealEstate
+  updateRealEstate(id: ID!, input: RealEstateInput): RealEstate
+  deleteRealEstate(id: ID!): ID
+}

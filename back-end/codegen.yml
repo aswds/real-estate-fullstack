@@ -1,0 +1,6 @@
+schema: src/**/*.gql # Path to your schema file
+documents: ./src/**/*.graphql # Optional: Path to query/mutation files
+generates:
+  ./types.ts:
+    plugins:
+      - typescript

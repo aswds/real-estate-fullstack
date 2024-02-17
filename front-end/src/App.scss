@@ -1,0 +1,38 @@
+$transition-duration: 700ms;
+$easing-function: cubic-bezier(0.35, 0.76, 0.61, 1);
+$default-transform: translate(0, 0);
+body.is-menu-open {
+  position: fixed;
+  overflow: hidden;
+}
+#root {
+  font-family: "Mulish";
+  color: white;
+}
+
+@mixin fade-out {
+  opacity: 0;
+  transition: all $transition-duration $easing-function;
+}
+
+[data-scroll="out"] {
+  @include fade-out;
+
+  &:not([fade-from]) {
+    transform: translateY(70px);
+  }
+
+  &[fade-from="left"] {
+    transform: translateX(-70px);
+  }
+
+  &[fade-from="right"] {
+    transform: translateX(70px);
+  }
+}
+
+[data-scroll="in"] {
+  transform: $default-transform;
+  opacity: 1;
+  transition: all $transition-duration $easing-function;
+}

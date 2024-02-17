@@ -1,0 +1,44 @@
+enum UserRole {
+  USER
+  ADMIN
+  REALTOR
+}
+union UserRealtor = Realtor | User
+
+type Realtor {
+  licenseNumber: String!
+  contactNumber: String!
+}
+
+type User {
+  _id: String!
+  name: String!
+  surname: String!
+  email: String!
+  password: String!
+  role: UserRole!
+}
+type AuthData {
+  userId: String!
+  token: String!
+  tokenExpiration: String!
+}
+
+type Query {
+  user(id: String!): User
+  users: [User]
+}
+type Mutation {
+  signUp(input: UserAuthInput!): User!
+  signIn(email: String!, password: String!): AuthData
+}
+
+input UserAuthInput {
+  name: String
+  surname: String
+  email: String!
+  password: String!
+  role: UserRole!
+  licenseNumber: String
+  contactNumber: String
+}
