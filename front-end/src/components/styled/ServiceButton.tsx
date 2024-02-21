@@ -2,12 +2,18 @@ import Text from "@components/styled/Text";
 import Container from "./Container";
 import { Header } from "./Header";
 import styled, { keyframes } from "styled-components";
-import { ComponentProps, RefObject, forwardRef, useState } from "react";
+import {
+  ComponentProps,
+  ComponentRef,
+  forwardRef,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 
 interface ServiceButtonProps extends React.PropsWithChildren {
   title: string;
-  ref?: RefObject<{}>;
-  onMouseEnter?: Function;
+  onMouseEnter: Function;
   isActive: boolean;
 }
 
@@ -15,54 +21,81 @@ const ServiceButtonContainer = styled.a<ComponentProps<"div">>`
   cursor: pointer;
   align-items: flex-start;
   transition: all 0.5s ease-in-out;
+
   .description {
-    height: 0;
     opacity: 0;
     transition: all 1s ease-in-out;
-    transition-delay: 0.3s;
-
     overflow: hidden;
+    /* Added max-height to prevent unexpected behavior */
+    max-height: 0;
   }
 
   .title {
     transition: all 0.5s ease-in-out;
-    transition-delay: 0.3s;
   }
+
   .title:not(.active) {
     opacity: 0.5;
   }
+
   &.active {
     .title {
       opacity: 1;
     }
+
     .description {
       opacity: 1;
-      height: 100px;
+      /* Adjust the max-height based on your needs */
+      max-height: 500px; // Replace with a suitable value
     }
   }
 `;
 
-const ServiceButton = forwardRef(function ServiceButton(
-  { children, title, onMouseEnter, isActive }: ServiceButtonProps,
-  ref
-) {
+function ServiceButton({
+  children,
+  title,
+  onMouseEnter,
+  isActive,
+}: ServiceButtonProps) {
+  const descriptionRef = useRef<HTMLDivElement>(null);
+  const [height, setHeight] = useState<number>(0);
+
+  useEffect(() => {
+    // Calculate height on initial render and whenever content changes
+    if (descriptionRef.current) {
+      const newHeight = descriptionRef.current.scrollHeight;
+      setHeight(newHeight);
+    }
+  }, [children]);
+
+  function handleMouseEnter() {
+    if (descriptionRef.current) {
+      descriptionRef.current.style.maxHeight = `${height}px`;
+    }
+    onMouseEnter?.();
+  }
+
   return (
     <ServiceButtonContainer
       as={Container}
       display="flex"
-      className={` flex-col ${isActive ? "active" : ""} gap-4`}
-      onMouseEnter={onMouseEnter}
+      className={`flex-col ${isActive ? "active" : ""} gap-4`}
+      onMouseEnter={handleMouseEnter}
     >
       <button
-        className={`  title text-6xl  ${
+        className={`title text-6xl xl:text-6xl 2xl:text-8xl  ${
           isActive ? "translate-y-0" : "translate-y-4"
         }`}
       >
         {title}
       </button>
-      <div className={`  description  text-2xl`}>
+      <div
+        className={`relative description text-2xl`}
+        style={{ height: isActive ? height + "px" : 0 }}
+        ref={descriptionRef}
+      >
         <Text
-          className={`text-2xl transition-transform duration-1000 ${
+          className={`text-2xl xl:text-4xl 2xl:text-5xl transition-transform duration-1000 ${
             isActive ? "translate-y-0" : "translate-y-4"
           }`}
         >
@@ -71,5 +104,6 @@ const ServiceButton = forwardRef(function ServiceButton(
       </div>
     </ServiceButtonContainer>
   );
-});
+}
+
 export default ServiceButton;

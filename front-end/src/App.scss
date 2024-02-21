@@ -36,3 +36,41 @@ body.is-menu-open {
   opacity: 1;
   transition: all $transition-duration $easing-function;
 }
+
+.swiper-pagination-bullet-active {
+  background-color: #ffffff !important;
+  opacity: 1 !important;
+  border-color: rgb(0, 0, 0) !important;
+  border-width: 1px !important;
+}
+.swiper-pagination-bullet {
+  padding: 3px;
+  opacity: 1 !important;
+  border-color: white !important;
+  border-width: 1px !important;
+}
+.animataion-link-left-to-right {
+  color: white;
+  position: relative;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.animataion-link-left-to-right::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  border-radius: 2px;
+  background-color: white;
+  bottom: -5px;
+  left: 0;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.animataion-link-left-to-right:hover::before {
+  transform-origin: left;
+  transform: scaleX(1);
+}

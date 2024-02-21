@@ -37,7 +37,7 @@ function Services() {
                 }`}
                 key={index}
               >
-                <div className="image-wrapper h-full overflow-hidden loaded">
+                <div className="h-full overflow-hidden ">
                   <img
                     src={houseUrl}
                     className={`attachment-full size-full loaded`}
@@ -74,8 +74,7 @@ function Services() {
             onMouseEnter={() => handleButtonHover(1)}
           >
             Our seasoned team excels in market analysis, precise property
-            valuation, and effective negotiation. We prioritize personalized
-            client experiences, innovative marketing, and legal expertise.
+            valuation, and effective negotiation.
           </ServiceButton>
           <ServiceButton
             title="Rent"
@@ -83,9 +82,7 @@ function Services() {
             onMouseEnter={() => handleButtonHover(2)}
           >
             Discover a range of carefully curated rental properties tailored to
-            your needs. Our listings showcase quality homes, apartments, and
-            commercial spaces, each accompanied by transparent terms. Find your
-            perfect rental with us.
+            your needs.
           </ServiceButton>
           <ServiceButton
             title="Lease"
@@ -93,16 +90,14 @@ function Services() {
             isActive={activeIndex === 3}
           >
             Explore our curated selection of available properties for lease,
-            including residential homes and commercial spaces. Benefit from
-            transparent terms and find the ideal lease opportunity that suits
-            your needs. Your next space is just a click away.
+            including residential homes and commercial spaces.
           </ServiceButton>
         </Container>
       </section>
       <section className="block md:hidden  pt-10 pb-16 w-full z-50">
         <Swiper pagination modules={[Pagination]} autoHeight>
           {[House, House1, House2].map((houseUrl, index) => (
-            <SwiperSlide>
+            <SwiperSlide key={index}>
               <div>
                 <img
                   src={houseUrl}

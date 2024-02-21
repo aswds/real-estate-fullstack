@@ -1,44 +1,38 @@
 import { projectHouses } from "@/constants/projectHouses";
-import ProjectHouse0 from "@assets/houses/project-house0.jpg";
 import Button from "@components/styled/Button";
+import Project from "@components/styled/Projects/Project";
 import ProjectSlide from "@components/styled/Projects/ProjectSlide";
-import SectionTitle from "@components/styled/Section/SectionTitle";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Keyboard, Navigation, Pagination } from "swiper/modules";
+import { Swiper } from "swiper/react";
 function Projects() {
   return (
-    <div className="page overflow-hidden py-10 text-black  bg-white">
-      <div className="projects-container">
-        <div className="w-full md:w-1/3 " data-scroll="out" fade-from="left">
-          <SectionTitle>EXPERIENCE WE HAVE</SectionTitle>
-          <h1 className="mb-10">LATEST PROJECTS</h1>
-          <div className="hidden md:flex">
-            <Button text="Projects" href="" />
-          </div>
-        </div>
+    <div className="projects-container page gap-10 text-black" id="projects">
+      <div className="w-full " data-scroll="out" fade-from="left">
+        <h3>OUR LATEST PROJECTS</h3>
+      </div>
 
-        <div
-          className="relative w-full  md:w-2/3"
-          data-scroll="out"
-          fade-from="right"
-        >
-          <Swiper>
-            {projectHouses.map((houseData) => {
-              return (
-                <SwiperSlide>
-                  <ProjectSlide {...houseData} />
-                </SwiperSlide>
-              );
-            })}
-          </Swiper>
-        </div>
-        <div className="flex self-start md:hidden">
-          <Button
-            text="Projects"
-            href=""
-            className="white-bg"
-            fadeFrom="right"
-          />
-        </div>
+      <div className=" w-full h-full hidden md:block " fade-from="right">
+        {projectHouses.map((houseData) => {
+          return <Project {...houseData} />;
+        })}
+      </div>
+      <section className="flex w-full md:hidden">
+        <Swiper pagination modules={[Pagination, Keyboard, Navigation]}>
+          {projectHouses.map((houseData, index) => {
+            return <ProjectSlide {...houseData} key={index} />;
+          })}
+          <div className="relative p-5">
+            <div className="swiper-pagination "></div>
+          </div>
+        </Swiper>
+      </section>
+      <div className="flex">
+        <Button
+          text="See All Projects"
+          href=""
+          className="white-bg"
+          fadeFrom="right"
+        />
       </div>
     </div>
   );

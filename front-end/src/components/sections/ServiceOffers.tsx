@@ -1,18 +1,13 @@
 import Container from "@components/styled/Container";
 import SectionText from "@components/styled/Section/SectionText";
 import SectionTitle from "@components/styled/Section/SectionTitle";
-import ServiceButton from "@components/styled/ServiceButton";
 import Services from "@components/styled/Services";
-import Text from "@components/styled/Text";
-import { useRef, useState } from "react";
-import { Pagination } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
 function ServiceOffers() {
   return (
     <Container
       display="flex"
       alignItems="flex-start"
-      className="flex-col w-full relative page mt-36 "
+      className="flex-col w-full relative  mt-10 "
       margin="36"
       id="services"
     >

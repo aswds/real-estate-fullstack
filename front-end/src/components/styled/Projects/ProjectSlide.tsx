@@ -1,23 +1,24 @@
-import React from "react";
-import Button from "../Button";
 import { ProjectHouseType } from "@/constants/projectHouses";
-
-function ProjectSlide({ city, img, state }: ProjectHouseType) {
+import React from "react";
+import { SwiperSlide } from "swiper/react";
+import { GoLinkExternal } from "react-icons/go";
+const ProjectSlide = ({ city, img, state }: ProjectHouseType) => {
   return (
-    <div className="house-image-container">
-      <div className="dark-layer ">
-        <img src={img} alt="project-house" className="object-contain" />
+    <SwiperSlide className=" text-white h-full bg-yellow-100">
+      <div className=" size-full ">
+        <img src={img} alt="project-house" className="size-full object-cover" />
       </div>
-      <div className="house-info">
-        <div>
+      <div>
+        <div className="absolute flex flex-col items-center justify-center bottom-0  w-full p-10 size-full text-white  bg-black/40">
           <h4>{city}</h4>
           <h3 className="font-light">{state}</h3>
         </div>
-
-        <Button text="READ MORE" href="" className="no-icon" />
+        <GoLinkExternal />
       </div>
-    </div>
+    </SwiperSlide>
   );
-}
+};
+
+ProjectSlide.displayName = "SwiperSlide";
 
 export default ProjectSlide;

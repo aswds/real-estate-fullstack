@@ -7,25 +7,20 @@ import Text from "@components/styled/Text";
 
 function AboutUs() {
   return (
-    <Container
-      display="flex"
-      className=" flex-col gap-10 page"
-      justifyContent="space-around"
-      alignItems="flex-start"
+    <div
+      className="flex flex-col  page gap-10 justify-around items-start  bg-white text-black"
       data-scroll="out"
     >
-      <div className="flex flex-col">
-        <SectionTitle>WHO WE ARE?</SectionTitle>
+      <SectionTitle>WHO WE ARE?</SectionTitle>
 
-        <SectionText>
-          We are PRESTIGE PALACES, a premier real estate company dedicated to
-          crafting luxurious and innovative living spaces that redefine the art
-          of modern living.
-        </SectionText>
-      </div>
+      <SectionText>
+        We are PRESTIGE PALACES, a premier real estate company dedicated to
+        crafting luxurious and innovative living spaces that redefine the art of
+        modern living.
+      </SectionText>
 
       <Button text="About Us" href="" />
-    </Container>
+    </div>
   );
 }
 

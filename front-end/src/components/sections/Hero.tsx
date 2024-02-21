@@ -6,8 +6,8 @@ import { SlArrowDown } from "react-icons/sl";
 function Hero() {
   return (
     <div className="h-screen   ">
-      <div className="absolute h-full w-full -z-10 ">
-        <video src={HeroVideoBG} autoPlay loop muted />
+      <div className="absolute w-full h-screen -z-10 ">
+        <video src={HeroVideoBG} autoPlay loop muted className="size-full" />
       </div>
 
       <div className="flex flex-col w-full h-full items-center justify-center ">

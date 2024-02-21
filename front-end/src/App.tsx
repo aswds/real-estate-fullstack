@@ -9,6 +9,8 @@ import { setBodyObserver } from "./utils/setBodyObserver";
 import "swiper/css";
 import "swiper/css/bundle";
 import "swiper/css/pagination";
+import ContactUs from "@components/sections/ContactUs";
+import Footer from "@components/sections/Footer";
 function App() {
   useEffect(() => {
     setBodyObserver();
@@ -19,12 +21,15 @@ function App() {
         <Navbar />
       </nav>
       <Hero />
+      <AboutUs />
+
       <div className="m-auto page">
-        <AboutUs />
         <ServiceOffers />
       </div>
-
       <Projects />
+
+      <ContactUs />
+      <Footer />
     </>
   );
 }

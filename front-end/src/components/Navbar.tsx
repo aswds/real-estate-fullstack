@@ -31,13 +31,7 @@ const Navbar = () => {
   return (
     <header className={`navbar-container`} ref={headerRef}>
       <nav className={`navbar ${showMobileMenu ? " is-menu-open" : ""} `}>
-        <h1
-          className={`text-5xl ${
-            showMobileMenu ? " text-black z-10" : "text-white"
-          } `}
-        >
-          PP
-        </h1>
+        <h1 className={`text-5xl `}>PP</h1>
         <div className="linksContainer">
           {NavbarLinks.map((link) => (
             <Link key={link.title} className="link">
@@ -50,17 +44,22 @@ const Navbar = () => {
           <Link className="link">Sign Up</Link>
           <Link className="link">Sign In</Link>
         </div>
-        <div
-          className={`menu ${
-            showMobileMenu ? " text-black z-10" : "text-white"
-          } `}
-          onClick={openMobileMenu}
-        >
-          {showMobileMenu ? <MdClose size={50} /> : <IoMdMenu size={30} />}
+        <div className={`menu`} onClick={openMobileMenu}>
+          <IoMdMenu size={30} />
         </div>
         <div className={`mobile-nav  ${showMobileMenu ? "active" : ""} `}>
-          <div className="overflow-auto sm:mt-32 mt-24 mb-5 sm:mb-0 menu-wrapper">
-            back to nidgereraf fds fd<div>fdsf</div>
+          <div className="flex-center justify-between p-10 ">
+            <h1 className="text-6xl ">PP</h1>
+            <MdClose size={60} onClick={openMobileMenu} />
+          </div>
+          <div className="container">
+            <Link className="">Sign Up</Link>
+            <Link className="">Sign In</Link>
+            {NavbarLinks.map((link) => (
+              <Link key={link.title} className="">
+                {link.title}
+              </Link>
+            ))}
           </div>
         </div>
       </nav>

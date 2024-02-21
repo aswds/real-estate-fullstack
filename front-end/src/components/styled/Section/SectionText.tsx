@@ -11,7 +11,7 @@ const WrapperText = styled.h3.attrs((props) => {
 function SectionText(props) {
   return (
     <WrapperText
-      className={`${props.className} text-xl md:text-5xl md:max-w-[90%]`}
+      className={`${props.className} text-2xl md:text-5xl md:max-w-[90%] lg:max-w-[80%]`}
       {...props}
     >
       {props.children}
