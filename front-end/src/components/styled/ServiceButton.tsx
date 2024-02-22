@@ -61,7 +61,7 @@ function ServiceButton({
       const newHeight = descriptionRef.current.scrollHeight;
       setHeight(newHeight);
     }
-  }, [children]);
+  }, [children, resize]);
 
   function handleMouseEnter() {
     if (descriptionRef.current) {
