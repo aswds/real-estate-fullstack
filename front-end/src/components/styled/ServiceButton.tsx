@@ -51,9 +51,12 @@ function ServiceButton({
 }: ServiceButtonProps) {
   const descriptionRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState<number>(0);
-
+  const [resize, setResize] = useState<boolean>(false);
   useEffect(() => {
     // Calculate height on initial render and whenever content changes
+    document.addEventListener("resize", () => {
+      setResize((resized) => !resized);
+    });
     if (descriptionRef.current) {
       const newHeight = descriptionRef.current.scrollHeight;
       setHeight(newHeight);
@@ -86,13 +89,13 @@ function ServiceButton({
         style={{ height: isActive ? height + "px" : 0 }}
         ref={descriptionRef}
       >
-        <Text
+        <h3
           className={`text-2xl xl:text-4xl 2xl:text-5xl transition-transform duration-1000 ${
             isActive ? "translate-y-0" : "translate-y-4"
           }`}
         >
           {children}
-        </Text>
+        </h3>
       </div>
     </ServiceButtonContainer>
   );

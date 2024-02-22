@@ -3,24 +3,26 @@ import { buildImage, expertise, lease, rent } from "@assets/services/index";
 export const services = [
   {
     title: "Build",
-    description: "Construct structures with precision and innovation.",
+    description:
+      "Setting the standard for master planning work for real estate development and redevelopment projects around the world.",
     img: buildImage,
   },
   {
     title: "Expertise",
     description:
-      "Demonstrate proficiency in diverse fields of knowledge and skills.",
+      "Our seasoned team excels in market analysis, precise property valuation, and effective negotiation.",
     img: expertise,
   },
   {
     title: "Rent",
-    description: "Access temporary use of resources for your convenience.",
+    description:
+      "Discover a range of carefully curated rental properties tailored to your needs.",
     img: rent,
   },
   {
     title: "Lease",
     description:
-      "Secure long-term agreements for exclusive usage of valuable assets.",
+      "Explore our curated selection of available properties for lease, including residential homes and commercial spaces.",
     img: lease,
   },
 ];

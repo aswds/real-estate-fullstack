@@ -1,4 +1,4 @@
-import { services } from "@/constants/services";
+import { services, servicesText } from "@/constants/services";
 import { useRef, useState } from "react";
 import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -51,38 +51,18 @@ function Services() {
           //@ts-ignore
           onMouseLeave={handleMouseLeave}
         >
-          <ServiceButton
-            title="Build"
-            isActive={activeIndex === 0}
-            onMouseEnter={() => handleButtonHover(0)}
-          >
-            Setting the standard for master planning work for real estate
-            development and redevelopment projects around the world.
-          </ServiceButton>
-          <ServiceButton
-            title="Expertise"
-            isActive={activeIndex === 1}
-            onMouseEnter={() => handleButtonHover(1)}
-          >
-            Our seasoned team excels in market analysis, precise property
-            valuation, and effective negotiation.
-          </ServiceButton>
-          <ServiceButton
-            title="Rent"
-            isActive={activeIndex === 2}
-            onMouseEnter={() => handleButtonHover(2)}
-          >
-            Discover a range of carefully curated rental properties tailored to
-            your needs.
-          </ServiceButton>
-          <ServiceButton
-            title="Lease"
-            onMouseEnter={() => handleButtonHover(3)}
-            isActive={activeIndex === 3}
-          >
-            Explore our curated selection of available properties for lease,
-            including residential homes and commercial spaces.
-          </ServiceButton>
+          {services.map((service, index) => {
+            return (
+              <ServiceButton
+                title={service.title}
+                isActive={activeIndex === index}
+                key={index}
+                onMouseEnter={() => handleButtonHover(index)}
+              >
+                {service.description}
+              </ServiceButton>
+            );
+          })}
         </div>
       </section>
       <section className="block md:hidden  pt-10 pb-16 w-full  max-h-[50%]">
