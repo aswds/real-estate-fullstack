@@ -1,6 +1,5 @@
-import React from "react";
-import Button from "../Button";
 import { ProjectHouseType } from "@/constants/projectHouses";
+import Button from "../Button";
 
 function Project({ city, img, state }: ProjectHouseType) {
   return (

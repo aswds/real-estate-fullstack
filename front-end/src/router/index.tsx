@@ -1,6 +1,5 @@
 import { Outlet, createBrowserRouter } from "react-router-dom";
 import App from "../App";
-import Navbar from "@components/Navbar";
 
 function NavbarParent() {
   return (

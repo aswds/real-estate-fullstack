@@ -1,5 +1,5 @@
-import React, { ComponentProps, HTMLAttributes, forwardRef } from "react";
-import styled, { css } from "styled-components";
+import React, { ComponentProps, forwardRef } from "react";
+import styled from "styled-components";
 
 interface ContainerProps {
   padding?: string;
@@ -36,6 +36,7 @@ const StyledContainer = styled.div<ContainerProps & ComponentProps<"section">>`
 
 const Container: React.FC<ContainerProps> = forwardRef(
   ({ children, ...props }, ref) => (
+    //@ts-ignore
     <StyledContainer {...props} ref={ref}>
       {children}
     </StyledContainer>

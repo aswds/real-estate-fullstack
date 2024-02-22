@@ -16,7 +16,7 @@ function dataScrollInHandle() {
 }
 
 const observerCallback = (entries: IntersectionObserverEntry[]) => {
-  entries.forEach((entry, i) => {
+  entries.forEach((entry) => {
     if (entry.isIntersecting) {
       entry.target.setAttribute("data-scroll", "in");
     }

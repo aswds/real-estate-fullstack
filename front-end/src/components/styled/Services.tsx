@@ -1,22 +1,18 @@
-import React, { useEffect, useRef, useState } from "react";
-import Container from "./Container";
-import ServiceButton from "./ServiceButton";
 import House from "@assets/houses/hero-house.jpg";
 import House1 from "@assets/houses/project-house0.jpg";
 import House2 from "@assets/houses/project-house1.jpg";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { useRef, useState } from "react";
 import { Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import ServiceButton from "./ServiceButton";
 function Services() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState<number>(0); // Initially first button active
-  const [activeImage, setActiveImage] = useState();
   const handleMouseLeave = (event: MouseEvent) => {
-    if (!containerRef.current?.contains(event.relatedTarget as Node)) {
+    if (!containerRef.current?.contains(event.relatedTarget! as Node)) {
       setActiveIndex(0); // Reset to first button on leave
     }
   };
-
-  useEffect(() => {}, []);
 
   const handleButtonHover = (index: number) => {
     setActiveIndex(index);
@@ -52,12 +48,10 @@ function Services() {
             ))}
           </div>
         </div>
-        <Container
-          display="flex"
-          className="flex-col  w-2/3 max-h-full  "
-          alignItems="flex-start"
+        <div
+          className="flex flex-col  w-2/3 max-h-full items-start justify-start "
           ref={containerRef}
-          justifyContent="flex-start"
+          //@ts-ignore
           onMouseLeave={handleMouseLeave}
         >
           <ServiceButton
@@ -92,7 +86,7 @@ function Services() {
             Explore our curated selection of available properties for lease,
             including residential homes and commercial spaces.
           </ServiceButton>
-        </Container>
+        </div>
       </section>
       <section className="block md:hidden  pt-10 pb-16 w-full z-50">
         <Swiper pagination modules={[Pagination]} autoHeight>

@@ -1,14 +1,11 @@
 import Button from "@components/styled/Button";
-import Container from "@components/styled/Container";
-import { Header } from "@components/styled/Header";
-import SectionTitle from "@components/styled/Section/SectionTitle";
 import SectionText from "@components/styled/Section/SectionText";
-import Text from "@components/styled/Text";
+import SectionTitle from "@components/styled/Section/SectionTitle";
 
 function AboutUs() {
   return (
     <div
-      className="flex flex-col  page gap-10 justify-around items-start  bg-white text-black"
+      className="flex flex-col  page  justify-around items-start  bg-white text-black"
       data-scroll="out"
     >
       <SectionTitle>WHO WE ARE?</SectionTitle>
@@ -19,7 +16,7 @@ function AboutUs() {
         modern living.
       </SectionText>
 
-      <Button text="About Us" href="" />
+      <Button text="About Us" href="" className="mt-10" />
     </div>
   );
 }

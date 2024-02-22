@@ -8,6 +8,11 @@ export type ProjectHouseType = {
 
 export const projectHouses: ProjectHouseType[] = [
   {
+    city: "Bismarck",
+    state: "North Dakota",
+    img: ProjectHouse2,
+  },
+  {
     city: "Madison Lake",
     state: "Minnesota",
     img: ProjectHouse0,
@@ -16,10 +21,5 @@ export const projectHouses: ProjectHouseType[] = [
     city: "Charlotte",
     state: "North Carolina",
     img: ProjectHouse1,
-  },
-  {
-    city: "Bismarck",
-    state: "North Dakota",
-    img: ProjectHouse2,
   },
 ];

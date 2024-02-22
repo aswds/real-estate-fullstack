@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 function Footer() {
   return (
     <div className="flex flex-col justify-around gap-10 mx-14 my-10">

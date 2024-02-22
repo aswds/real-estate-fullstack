@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 const WrapperText = styled.h3.attrs((props) => {
@@ -8,7 +7,7 @@ const WrapperText = styled.h3.attrs((props) => {
   };
 })``;
 
-function Text(props) {
+function Text(props: React.HTMLAttributes<HTMLHeadingElement>) {
   return (
     <WrapperText className={props.className} {...props}>
       {props.children}

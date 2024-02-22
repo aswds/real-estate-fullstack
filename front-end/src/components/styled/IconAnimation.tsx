@@ -15,7 +15,7 @@ const Wrapper = styled.div`
   animation-iteration-count: infinite;
 `;
 
-function IconAnimation(props) {
+function IconAnimation(props: React.PropsWithChildren) {
   return <Wrapper>{props.children}</Wrapper>;
 }
 

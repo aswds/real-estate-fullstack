@@ -1,15 +1,7 @@
 import Text from "@components/styled/Text";
+import { ComponentProps, useEffect, useRef, useState } from "react";
+import styled from "styled-components";
 import Container from "./Container";
-import { Header } from "./Header";
-import styled, { keyframes } from "styled-components";
-import {
-  ComponentProps,
-  ComponentRef,
-  forwardRef,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
 
 interface ServiceButtonProps extends React.PropsWithChildren {
   title: string;
