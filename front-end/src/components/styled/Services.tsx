@@ -1,4 +1,4 @@
-import { services, servicesText } from "@/constants/services";
+import { services } from "@/constants/services";
 import { useRef, useState } from "react";
 import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
