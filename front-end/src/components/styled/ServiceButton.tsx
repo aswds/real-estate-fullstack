@@ -1,4 +1,3 @@
-import Text from "@components/styled/Text";
 import { ComponentProps, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import Container from "./Container";
