@@ -2,7 +2,6 @@ $transition-duration: 700ms;
 $easing-function: cubic-bezier(0.35, 0.76, 0.61, 1);
 $default-transform: translate(0, 0);
 body.is-menu-open {
-  position: fixed;
   overflow: hidden;
 }
 #root {

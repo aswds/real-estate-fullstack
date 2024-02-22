@@ -1,11 +1,10 @@
-import build from "@assets/services/build.jpg";
-import expertise from "@assets/services/expertise.jpg";
+import { buildImage, expertise, lease, rent } from "@assets/services/index";
 
 export const services = [
   {
     title: "Build",
     description: "Construct structures with precision and innovation.",
-    img: build,
+    img: buildImage,
   },
   {
     title: "Expertise",
@@ -16,12 +15,12 @@ export const services = [
   {
     title: "Rent",
     description: "Access temporary use of resources for your convenience.",
-    img: "",
+    img: rent,
   },
   {
     title: "Lease",
     description:
       "Secure long-term agreements for exclusive usage of valuable assets.",
-    img: "",
+    img: lease,
   },
 ];
