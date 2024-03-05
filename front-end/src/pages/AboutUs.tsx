@@ -1,8 +1,8 @@
-import SectionTitle from "@components/styled/Section/SectionTitle";
 import Headquater from "@/assets/houses/headquater.jpg";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
+import SectionTitle from "@components/styled/Section/SectionTitle";
 import { ElementRef, useEffect, useRef } from "react";
+import { Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 function Stats({ desription, title }: { title: string; desription: string }) {
   return (
     <div

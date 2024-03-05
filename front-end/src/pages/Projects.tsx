@@ -1,10 +1,9 @@
 import { projects } from "@/constants/projects";
-import "./Projects.scss";
-import { useEffect, useState } from "react";
-import Button from "@components/styled/Button";
-import Image from "@components/styled/Image";
-import Project from "@components/styled/Project";
 import { dataScrollInHandle } from "@/js/dataScrollIn";
+import Button from "@components/styled/Button";
+import Project from "@components/styled/Project";
+import { useEffect, useState } from "react";
+import "./Projects.scss";
 function Projects() {
   const [page, setPage] = useState<number>(1);
   const projectsToShow = projects.slice(0, page * 5);

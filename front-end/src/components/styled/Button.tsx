@@ -1,4 +1,4 @@
-import { Fragment, MouseEventHandler } from "react";
+import { MouseEventHandler } from "react";
 import { MdArrowOutward } from "react-icons/md";
 import { Link } from "react-router-dom";
 
@@ -11,11 +11,12 @@ function Button(props: {
 }) {
   const Element = props.href ? Link : "button";
   return (
-    <Element
+    <Element //@ts-ignore
       to={props.href}
       className={`action-button ${props.className}`}
       data-scroll="out"
       fade-from={props.fadeFrom}
+      //@ts-ignore
       onClick={props.onClick}
       aria-label={props.text}
     >

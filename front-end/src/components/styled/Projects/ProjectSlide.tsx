@@ -1,14 +1,8 @@
 import { ProjectHouseType } from "@/constants/projectHouses";
+import { ComponentRef, useEffect, useRef } from "react";
 import { SwiperSlide } from "swiper/react";
 import Button from "../Button";
-import { ComponentRef, useEffect, useRef } from "react";
-const ProjectSlide = ({
-  city,
-  img,
-  state,
-  description,
-  title,
-}: ProjectHouseType) => {
+const ProjectSlide = ({ img, description, title }: ProjectHouseType) => {
   const descriptionRef = useRef<ComponentRef<"p">>(null);
   const articleRef = useRef<ComponentRef<"article">>(null);
   function setDescriptionSize() {

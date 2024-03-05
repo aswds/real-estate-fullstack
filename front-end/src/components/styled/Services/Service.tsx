@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { MdOutlineArrowForward } from "react-icons/md";
 function Service({
   title,
@@ -7,19 +6,9 @@ function Service({
   title: string;
   description: string;
 }) {
-  const [isHovered, setIsHovered] = useState<boolean>(false);
-
   return (
     <div className="text-black">
-      <div
-        className="group/title flex flex-row justify-between items-center cursor-pointer"
-        onMouseEnter={() => {
-          setIsHovered(true);
-        }}
-        onMouseLeave={() => {
-          setIsHovered(false);
-        }}
-      >
+      <div className="group/title flex flex-row justify-between items-center cursor-pointer">
         <h3
           className={`group-hover/title  animataion-link-left-to-right !text-black before:!bg-black`}
         >
