@@ -1,6 +1,5 @@
 window.onload = dataScrollInHandle;
-
-function dataScrollInHandle() {
+export function dataScrollInHandle() {
   const queriedElements = document.querySelectorAll('[data-scroll="out"]');
   queriedElements.forEach((elementsDataScroll) => {
     if (elementsDataScroll) {
@@ -8,7 +7,7 @@ function dataScrollInHandle() {
         (entries) => {
           observerCallback(entries);
         },
-        { threshold: 0.3 }
+        { threshold: 0.5 }
       );
       observer.observe(elementsDataScroll);
     }

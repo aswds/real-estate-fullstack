@@ -1,4 +1,10 @@
-import { ComponentProps, useEffect, useRef, useState } from "react";
+import {
+  ComponentProps,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 import styled from "styled-components";
 import Container from "./Container";
 
@@ -50,23 +56,36 @@ function ServiceButton({
 }: ServiceButtonProps) {
   const descriptionRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState<number>(0);
-  const [resize, setResize] = useState<boolean>(false);
-  useEffect(() => {
-    // Calculate height on initial render and whenever content changes
-    document.addEventListener("resize", () => {
-      setResize((resized) => !resized);
-    });
+  function handleResize() {
     if (descriptionRef.current) {
       const newHeight = descriptionRef.current.scrollHeight;
+      console.log(title);
+
+      console.log(newHeight);
       setHeight(newHeight);
     }
-  }, [children, resize]);
+  }
+  useLayoutEffect(() => {
+    setTimeout(() => {
+      handleResize();
+    }, 100); // Adjust the delay if needed
+
+    // ... other useEffect logic
+  }, [children]);
+  useEffect(() => {
+    // Calculate height on initial render and whenever content changes
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [children]);
 
   function handleMouseEnter() {
     if (descriptionRef.current) {
-      descriptionRef.current.style.maxHeight = `${height}px`;
+      descriptionRef.current.style.height = `${height}px`;
     }
-    onMouseEnter?.();
+    onMouseEnter();
   }
 
   return (
@@ -76,25 +95,23 @@ function ServiceButton({
       className={`flex-col ${isActive ? "active" : ""} gap-4`}
       onMouseEnter={handleMouseEnter}
     >
+      {/* ${isActive ? "translate-y-0" : "translate-y-4"} */}
       <button
-        className={`title text-6xl xl:text-6xl 2xl:text-8xl  ${
-          isActive ? "translate-y-0" : "translate-y-4"
-        }`}
+        className={`title text-6xl md:text-7xl max-md:text-9xl 2xl:text-8xl 
+        `}
       >
         {title}
       </button>
       <div
-        className={`relative description text-2xl`}
+        className={`relative description `}
         style={{ height: isActive ? height + "px" : 0 }}
         ref={descriptionRef}
       >
-        <h3
-          className={`text-2xl xl:text-4xl 2xl:text-5xl transition-transform duration-1000 ${
-            isActive ? "translate-y-0" : "translate-y-4"
-          }`}
+        <p
+          className={`text-2xl md:text-4xl xl:text-5xl  transition-transform duration-500 `}
         >
           {children}
-        </h3>
+        </p>
       </div>
     </ServiceButtonContainer>
   );

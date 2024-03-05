@@ -7,7 +7,7 @@ function TextAnimation(props: {
   }
   return (
     <div className="fadeInUp">
-      <p className={props.className ?? "hero-text"}>{props.children}</p>
+      <h1 className={props.className ?? "hero-text"}>{props.children}</h1>
     </div>
   );
 }

@@ -1,3 +1,4 @@
+import Button from "@components/styled/Button";
 import Container from "@components/styled/Container";
 import SectionTitle from "@components/styled/Section/SectionTitle";
 import Services from "@components/styled/Services";
@@ -17,6 +18,7 @@ function ServiceOffers() {
           to leasing and investment consultation, our dedicated team ensures a
           seamless experience throughout the entire real estate journey.
         </h3>
+        <Button className="no-icon mt-10" href="services" text="All Services" />
       </div>
 
       <Services />

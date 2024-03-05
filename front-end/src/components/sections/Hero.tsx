@@ -10,11 +10,11 @@ function Hero() {
       </div>
 
       <div className="flex flex-col w-full h-full items-center justify-center ">
-        <div className="text-center hero-text">
+        <div className="text-center hero-text ">
           <TextAnimation>PRESTIGE PALACES</TextAnimation>
-          <p className="text-xl md:text-3xl font-normal font-[Mulish] p-5">
+          <h2 className="text-xl md:text-3xl font-normal font-[Mulish] p-5">
             WHERE LUXURY LIVES
-          </p>
+          </h2>
         </div>
         <IconAnimation>
           <SlArrowDown size={50} color="white" className="" />

@@ -16,7 +16,7 @@ function AboutUs() {
         modern living.
       </SectionText>
 
-      <Button text="About Us" href="" className="mt-10" />
+      <Button text="About Us" href="/about" className="mt-10" />
     </div>
   );
 }

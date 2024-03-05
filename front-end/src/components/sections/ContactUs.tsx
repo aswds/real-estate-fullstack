@@ -11,7 +11,7 @@ function ContactUs() {
           </h1>
         </div>
 
-        <Button text="Contact Us" className="no-icon" href={""} />
+        <Button text="Contact Us" className="no-icon" href={"/contact"} />
       </div>
     </div>
   );

@@ -10,7 +10,7 @@ const Navbar = () => {
   const headerRef = useRef<ComponentRef<"div">>(null); // Create a ref to store the header element
 
   useSetHeaderHeight(headerRef);
-  async function openMobileMenu() {
+  async function handleMobileMenu() {
     setShowMobileMenu((showMenu) => !showMenu);
 
     const body = document.querySelector("body");
@@ -23,8 +23,10 @@ const Navbar = () => {
   useLayoutEffect(() => {}, []);
   return (
     <header className={`navbar-container`} ref={headerRef}>
-      <nav className={`navbar ${showMobileMenu ? " is-menu-open" : ""} `}>
-        <h1 className={`text-5xl `}>PP</h1>
+      <nav className={`navbar ${showMobileMenu ? "is-menu-open" : ""} `}>
+        <a href="/">
+          <h1 className={`text-5xl `}>PP</h1>
+        </a>
         <div className="linksContainer">
           {NavbarLinks.map((link) => (
             <Link key={link.title} className="link" to={""}>
@@ -33,31 +35,22 @@ const Navbar = () => {
           ))}
         </div>
 
-        <div className="authLinks">
-          <Link className="link" to={""}>
-            Sign Up
-          </Link>
-          <Link className="link" to={""}>
-            Sign In
-          </Link>
-        </div>
-        <div className={`menu`} onClick={openMobileMenu}>
+        <div className={`menu`} onClick={handleMobileMenu}>
           <IoMdMenu size={30} />
         </div>
         <div className={`mobile-nav  ${showMobileMenu ? "active" : ""} `}>
           <div className="flex-center justify-between p-10 ">
             <h1 className="text-6xl ">PP</h1>
-            <MdClose size={60} onClick={openMobileMenu} />
+            <MdClose size={60} onClick={handleMobileMenu} />
           </div>
           <div className="container">
-            <Link className="" to={""}>
-              Sign Up
-            </Link>
-            <Link className="" to={""}>
-              Sign In
-            </Link>
             {NavbarLinks.map((link) => (
-              <Link key={link.title} className="" to={link.path}>
+              <Link
+                key={link.title}
+                className=""
+                onClick={handleMobileMenu}
+                to={link.path}
+              >
                 {link.title}
               </Link>
             ))}

@@ -1,5 +1,5 @@
-$transition-duration: 700ms;
-$easing-function: cubic-bezier(0.35, 0.76, 0.61, 1);
+$transition-duration: 850ms;
+$easing-function: cubic-bezier(0.16, 0.88, 0.45, 1);
 $default-transform: translate(0, 0);
 body.is-menu-open {
   overflow: hidden;
@@ -9,6 +9,9 @@ body.is-menu-open {
   color: white;
 }
 
+a {
+  cursor: pointer !important;
+}
 @mixin fade-out {
   opacity: 0;
   transition: all $transition-duration $easing-function;
@@ -18,15 +21,15 @@ body.is-menu-open {
   @include fade-out;
 
   &:not([fade-from]) {
-    transform: translateY(70px);
+    transform: translateY(100px);
   }
 
   &[fade-from="left"] {
-    transform: translateX(-70px);
+    transform: translateX(-100px);
   }
 
   &[fade-from="right"] {
-    transform: translateX(70px);
+    transform: translateX(100px);
   }
 }
 

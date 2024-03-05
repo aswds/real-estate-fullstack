@@ -1,0 +1,25 @@
+.loader span {
+  font-size: 22px;
+  font-weight: 600;
+  animation: opacity 3s cubic-bezier(0.37, 0.84, 0.78, 1.03) infinite;
+  line-height: 20px;
+  transition: all 0.5s;
+  letter-spacing: 0.2em;
+  color: white;
+}
+
+.loader span [id="#dot-*"] {
+  color: red;
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

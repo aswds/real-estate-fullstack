@@ -1,6 +1,6 @@
 function Footer() {
   return (
-    <div className="flex flex-col justify-around gap-10 mx-14 my-10">
+    <footer className="flex  flex-col justify-around gap-10 mx-14 my-10">
       <div className="w-full ">
         <h1>PP</h1>
       </div>
@@ -16,7 +16,7 @@ function Footer() {
         </a>
       </div>
       <div>@2024 Prestige Palaces. All rights reserved.</div>
-    </div>
+    </footer>
   );
 }
 

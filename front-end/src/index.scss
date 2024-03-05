@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("./global.scss");
 ::-webkit-scrollbar {
   background-color: #66666670;
   width: 5px;
@@ -22,11 +23,9 @@ video {
   object-fit: cover;
   filter: brightness(60%);
 }
-
-.flex-center {
-  @apply flex  items-center;
+#about-us .swiper-slide {
+  @apply w-full md:w-1/2 xl:w-1/4;
 }
-
 .page {
   @apply sm:pt-14 sm:pb-32 pt-10 pb-16 px-6 md:px-14;
 }
@@ -53,7 +52,9 @@ video {
     opacity: 1;
   }
 }
-
+.page-subtitle {
+  @apply text-4xl 3xl:text-5xl;
+}
 .fadeInUp {
   animation: fadeInUp 3s forwards 0.3s 1;
 }
@@ -65,24 +66,31 @@ video {
     @apply md:text-7xl text-3xl;
   }
   h3 {
-    @apply md:text-5xl text-2xl;
+    @apply md:text-5xl text-3xl;
   }
   h4 {
     @apply md:text-2xl text-xl font-light;
   }
+  p {
+    @apply text-2xl md:text-3xl font-light;
+  }
 }
-.visible-navbar {
-  @apply translate-y-0  opacity-100;
-}
-.hidden-navbar {
-  @apply -translate-y-[var(--nav-height)] opacity-0;
-}
+
 .navbar-container {
   @apply transition-[transform,opacity]  duration-500;
+  &.visible-navbar {
+    @apply translate-y-0  opacity-100;
+  }
+  &.hidden-navbar {
+    @apply -translate-y-[var(--nav-height)] opacity-0;
+  }
+  &.hidden-navbar-background > .navbar {
+    @apply bg-black;
+  }
 }
 
 .navbar {
-  @apply flex bg-black/70 absolute w-full py-8 md:px-20 px-10  items-center justify-between;
+  @apply flex bg-black/70 absolute w-full py-8 md:px-20 px-10  items-center justify-between transition-all duration-500;
 
   .is-menu-open {
     @apply bg-black;
@@ -128,8 +136,7 @@ video {
 }
 .hero-text {
   font-size: 6vw;
-  color: white;
-  @apply tracking-widest md:tracking-[0.2em] text-center font-bold;
+  @apply tracking-widest md:tracking-[0.2em] text-center text-white;
 }
 .action-button {
   display: flex;
@@ -157,10 +164,11 @@ video {
         fill: white;
       }
     }
+    color: black;
     border-color: black;
   }
   &:hover .icon {
-    transform: translateY(-5px);
+    transform: translate(5px, -3px);
     fill: black;
   }
 
@@ -185,30 +193,6 @@ video {
 //PROJECTS
 .projects-container {
   @apply flex flex-col  h-screen bg-white items-center;
-
-  .house-image-container {
-    @apply relative h-1/4 overflow-hidden  transition-all duration-700;
-
-    .house-image {
-      @apply transition-all duration-700;
-      position: absolute;
-      transform: translateY(-50%);
-      max-width: 100%;
-      height: 100%;
-      width: auto;
-      height: auto;
-    }
-    &:hover {
-      @apply h-1/3;
-      .house-image {
-        transform: translateY(-30%);
-      }
-    }
-
-    .image-wrapper {
-      @apply min-h-40;
-    }
-  }
 }
 .house-info {
   @apply absolute flex flex-row items-center justify-between bottom-0 w-full p-10 size-full text-white  bg-black/40;

@@ -13,7 +13,6 @@ function Project({ city, img, state }: ProjectHouseType) {
             <h4>{city}</h4>
             <h3 className="font-light">{state}</h3>
           </div>
-          <Button text="READ MORE" href="" className="no-icon" />
         </div>
       </div>
     </>

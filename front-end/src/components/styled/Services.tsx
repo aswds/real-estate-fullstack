@@ -33,7 +33,7 @@ function Services() {
                 <div className="h-full overflow-hidden ">
                   <img
                     src={service.img}
-                    className={`attachment-full size-full loaded`}
+                    className={`size-full loaded`}
                     alt=""
                     data-h-pos=""
                     data-v-pos=""
@@ -46,7 +46,7 @@ function Services() {
           </div>
         </div>
         <div
-          className="flex flex-col  w-2/3 max-h-full items-start justify-start "
+          className="flex flex-col  w-2/3 max-h-full gap-2 items-start justify-start "
           ref={containerRef}
           //@ts-ignore
           onMouseLeave={handleMouseLeave}
